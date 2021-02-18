@@ -1,9 +1,10 @@
-def time_translate(duration):
+def time_translate(duration):  # Трансформирует время в нужный формат
     s = duration % 60
-    m = ((duration-s) // 60) % 60
+    m = ((duration - s) // 60) % 60
     h = (duration // 60 ** 2) % 24
     d = duration // (60 ** 2 * 24)
     return s, m, h, d
+
 
 durations = [int(i) for i in input().split()]
 for duration in durations:
