@@ -4,7 +4,8 @@ def number_sum(number, digit_sum=0):  # Находит сумму цифр в ч
         number = number // 10
     return digit_sum
 
-qubes = [int(i)**3 for i in range(1, 1000)]
+qubes = [int(i)**3 for i in range(1, 1000,2)]
+print('Длина', len(qubes))
 total_1 = 0  # Сумма в пункте a)
 total_2 = 0  # Сумма в пункте b)
 for number in qubes:
