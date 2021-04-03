@@ -4,10 +4,13 @@ class Data:
         self.month = month
         self.year = year
 
+    def __str__(self):
+        return f"Дата: {date.day}.{date.month}.{date.year}\n"
+
     @classmethod
-    def converter(cls, date: str):
+    def converter(cls, data: str):
         try:
-            day, month, year = date.split('-')
+            day, month, year = [int(i) for i in data.split('-')]
             cls.validator(cls(day, month, year))
             return cls(day, month, year)
         except ValueError as e:
@@ -15,12 +18,13 @@ class Data:
 
     @staticmethod
     def validator(obj):
-        if 13 > int(obj.month) > 0 and len(obj.year) == 4 and 32 > int(obj.day) > 0:
+        if 13 > obj.month > 0 and 2022 > obj.year > 0 and 32 > obj.day > 0:
             return True
         raise ValueError("Дата указана не верно!")
 
 
 date = Data.converter('12-12-2020')
-print(f"Дата: {date.day}.{date.month}.{date.year}\n")
+print(date)
 
-data2 = Data.converter('123-12-2020')
+date2 = Data.converter('123-12-2020')
+print(date2)
